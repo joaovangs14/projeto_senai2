@@ -46,7 +46,7 @@ function reiniciarJogo() {
     tentativa = 0;
     exibirTextoInicial();
     document.getElementById('reiniciar').setAttribute('disabled',true)
-    alterarImagem('imagem','./img/ia.png')
+    alterarImagem('imagem','Captura de tela 2024-04-05 092709.png')
 }
 
 function alterarImagem(objeto, caminhoImagem){
