@@ -1,4 +1,5 @@
 //return é daora legal, ele retorna o valor da função e jogará no meu número secretx!!!
+let listaDeNumerosSorteados = [];
 let numeroSecreto = gerarNumeroSecreto();
 console.log(numeroSecreto);
 let tentativa = 0;
@@ -35,7 +36,14 @@ function validarChute(){
  
  
 function gerarNumeroSecreto() {
-    return parseInt(Math.random()*10+1);
+    let numeroEscolhido = parseInt(Math.random()*10+1);
+    if (listaDeNumerosSorteados.includes(numeroEscolhido)){
+        return gerarNumeroSecreto();
+    }
+    else{
+        listaDeNumerosSorteados.push(numeroEscolhido);
+        return numeroEscolhido;
+    }
 }
 function limparCampo(){
     chute = document.querySelector(`input`);
@@ -43,7 +51,7 @@ function limparCampo(){
 }
 function reiniciarJogo() {
     numeroSecreto = gerarNumeroSecreto();
-    tentativa = 0;
+    tentativa = 1;
     exibirTextoInicial();
     document.getElementById('reiniciar').setAttribute('disabled',true)
     alterarImagem('imagem','Captura de tela 2024-04-05 092709.png')
